@@ -7,9 +7,23 @@ con = psycopg2.connect(
             password = "kUbhREPunaMyAVVAv5uc",
             port = 5432,)
 
+
+
 cur = con.cursor()
 
-cur.execute("insert into unireview_app_course (university, course_code, university_id, course_title, average_score) values (%s, %s, %s, %s, %s)")
+
+cur.execute("select average_num from marks where course_id=1")
+rows = cur.fetchall()
+avg = 0
+count = 0
+for r in rows:
+    avg+=r[0]
+    count += 1
+
+avg = avg/count
+
+
+cur.execute("insert into unireview_app_course (university, course_code, university_id, course_title, average_score) values (%s, %s, %s, %s, %s)",)  
 
 cur.execute("select * from unireview_app_course")
 
