@@ -13,7 +13,7 @@ from rest_framework import generics
 # Create your views here.
 
 def home(request):
-    return HttpResponse("<h1> Welcome to unireview. Go to http://127.0.0.1:8000/api/Course/ for the database model. </h1> \n" + "<h1> Go to http://127.0.0.1:8000/token-auth/ for the database model. </h1> \n" + "<h1> Go to http://127.0.0.1:8000/users/ for the signup model. </h1>")
+    return HttpResponse("<h1> Welcome to unireview. Go to http://127.0.0.1:8000/api/Course/ for the database model. </h1> \n" + "<h1> Go to http://127.0.0.1:8000/token-auth/ for the login model. </h1> \n" + "<h1> Go to http://127.0.0.1:8000/users/ for the signup model. </h1>")
 
 @api_view(['GET'])
 def current_user(request):
