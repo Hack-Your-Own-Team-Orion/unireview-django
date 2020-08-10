@@ -60,6 +60,10 @@ REST_FRAMEWORK = {
     ),
 }
 
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'unireview_orion.utils.my_jwt_response_handler'
+}
+
 
 ROOT_URLCONF = 'unireview_orion.urls'
 
