@@ -2,12 +2,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from rest_framework import permissions, status
+from rest_framework import permissions, status, filters
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import *
-from .serializers import CourseSerializer, UserSerializer, UserSerializerWithToken
+from .serializers import CourseSerializer, UserSerializer, UserSerializerWithToken, RatingSerializer
 from rest_framework import generics
 
 # Create your views here.
@@ -36,3 +36,11 @@ class UserList(APIView):
 class LeadListCreate(generics.ListCreateAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+
+    
+
+class RatingViews(generics.ListAPIView):
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
+    
+ 

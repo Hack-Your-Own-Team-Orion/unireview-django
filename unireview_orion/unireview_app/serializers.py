@@ -1,11 +1,18 @@
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
-from .models import Course
+from .models import *
+
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
+        fields = '__all__'
+    
+
+class RatingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rating
         fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
