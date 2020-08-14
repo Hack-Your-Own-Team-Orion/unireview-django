@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
+from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
 from .models import *
 
@@ -25,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserSerializerWithToken(serializers.ModelSerializer):
     
     token = serializers.SerializerMethodField()
-    email = serializers.EmailField(required=True)
+    email = serializers.EmailField(required=True, validators=[UniqueValidator(queryset=User.objects.all())])
     password = serializers.CharField(write_only=True)
 
     def get_token(self,obj):
