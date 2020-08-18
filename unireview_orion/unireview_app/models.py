@@ -8,6 +8,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
+
 # Create your models here.
 
 class Course(models.Model):
@@ -42,7 +43,7 @@ class Course(models.Model):
         unique_together = ("university_id","course_code")
 
 class Rating(models.Model):
-    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     username_id = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.TextField(max_length = 400)
     time_submitted = models.DateTimeField(auto_now=True)

@@ -10,6 +10,9 @@ from .models import *
 from .serializers import CourseSerializer, UserSerializer, UserSerializerWithToken, RatingSerializer
 from rest_framework import generics
 
+
+
+
 # Create your views here.
 
 def home(request):
@@ -18,7 +21,7 @@ def home(request):
      + "<h1> Go to http://127.0.0.1:8000/users/ for the signup model. </h1> \n" 
      + "<h1> Go to http://127.0.0.1:8000/current_user to use it in front end to display username of current user"
      + "<h1> Go to http://127.0.0.1.8000:/api/Rating for the ratings model")
-
+                                                                 
 @api_view(['GET'])
 def current_user(request):
     serializer =UserSerializer(request.user)
