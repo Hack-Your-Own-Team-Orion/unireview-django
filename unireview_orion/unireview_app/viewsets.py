@@ -7,6 +7,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 class CourseViewset(viewsets.ModelViewSet):
     queryset = models.Course.objects.all()
     serializer_class = serializers.CourseSerializer
+    filter_backends = (SearchFilter,)
+    search_fields = ('course_code','course_title','university',)
 
     
 
