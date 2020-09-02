@@ -1,7 +1,7 @@
 # Capstone project backend
 ## To clone this repository
 ```bash
-git clone https://github.com/Hack-Your-Own-Team-Orion/capstone-django.git
+git clone https://github.com/Hack-Your-Own-Team-Orion/unireview-django.git
 ```
 ## To cd into the repository
 ```bash
