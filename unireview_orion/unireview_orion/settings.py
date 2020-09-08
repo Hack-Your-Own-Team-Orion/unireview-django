@@ -42,12 +42,12 @@ CORS_ALLOW_HEADERS = (
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '90859cz^i#lpm)$n(dl+7tld&prdu3f7j!%hh0wll^fz=-!!=e'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG", ""))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -115,11 +115,11 @@ WSGI_APPLICATION = 'unireview_orion.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'unireview',
-        'USER': 'postgres',
-        'PASSWORD': 'kUbhREPunaMyAVVAv5uc',
-        'HOST': '174.138.126.45',
-        'PORT': '5432',
+        'NAME': os.environ["DATABASE_NAME"],
+        'USER': os.environ["DATABASE_USER"],
+        'PASSWORD': os.environ["DATABASE_PASSWORD"],
+        'HOST': os.environ["DATABASE_HOST"],
+        'PORT': os.environ["DATABASE_PORT"],
     }
 }
 
